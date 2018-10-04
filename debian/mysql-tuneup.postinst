@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+# Template for diversions
+ORIG_FILE="/lib/systemd/system/mysql.service"
+OUR_FILE="/usr/share/mysql-tuneup/mysql.service.lliurex"
+OUR_PACKAGE="mysql-tuneup"
+
+case $1 in 
+
+        configure)
+                if dpkg-divert --package ${OUR_PACKAGE} --add  --rename  --divert ${ORIG_FILE}.real ${ORIG_FILE} ; then
+                        ln -fs ${OUR_FILE} ${ORIG_FILE}
+                else
+                        echo "Unabe to divert file ${ORIG_FILE}"
+                fi 
+                
+				systemctl daemon-reload
+				invoke-rc.d mysql restart || true
+                ;;
+	   abort-upgrade|abort-remove|abort-deconfigure)
+			   ;;
+        *)
+                echo "Nothing to do"
+                ;; 
+esac
+
+#DEBHELPER#
+
+exit 0
+

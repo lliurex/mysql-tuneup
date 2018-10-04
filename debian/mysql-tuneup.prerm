@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+# Template for diversions
+ORIG_FILE="/lib/systemd/system/mysql.service"
+OUR_FILE="/usr/share/mysql-tuneup/mysql.service.lliurex"
+OUR_PACKAGE="mysql-tuneup"
+
+case $1 in 
+        remove|purge|abort-install|disappear)
+                if [ -f ${ORIG_FILE}.real ] ; then
+                        rm -f ${ORIG_FILE}
+                        dpkg-divert --package  ${OUR_PACKAGE} --rename --quiet --remove ${ORIG_FILE}|| true
+                fi
+                
+                ;;
+        *)
+                echo "Nothing to do"
+                ;; 
+esac
+
+# Other Stuff #
+
+#DEBHELPER#
