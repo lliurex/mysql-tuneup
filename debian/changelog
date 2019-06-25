@@ -1,3 +1,9 @@
+mysql-tuneup (0.4) bionic; urgency=medium
+
+  * Changed virtual-mysql-server with mysql-server
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 25 Jun 2019 12:16:50 +0200
+
 mysql-tuneup (0.3) bionic; urgency=medium
 
   * Bionic release

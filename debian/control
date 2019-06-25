@@ -9,7 +9,7 @@ Homepage: http://lliurex.net
 
 Package: mysql-tuneup
 Architecture: all
-Pre-Depends: virtual-mysql-server
+Pre-Depends: mysql-server
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description:  Lliurex mysql tuneup
  Configuration files for tuning up mysql server
