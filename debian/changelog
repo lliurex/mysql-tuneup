@@ -1,3 +1,9 @@
+mysql-tuneup (0.5) focal; urgency=medium
+
+  * Updated to use maridadb as default server database.
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 29 Mar 2021 14:36:44 +0200
+
 mysql-tuneup (0.4) focal; urgency=medium
 
   * Focal repack
