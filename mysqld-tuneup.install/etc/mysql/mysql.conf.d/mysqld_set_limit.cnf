@@ -1,2 +1,0 @@
-[mysqld]
-open-files-limit = 3265536
